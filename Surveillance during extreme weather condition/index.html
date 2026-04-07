@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme Weather Surveillance Command Center</title>
+    <meta name="description" content="Dashboard for monitoring surveillance cameras during extreme weather events.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-bolt text-red"></i>
+                <h2>StormWatch</h2>
+            </div>
+            <ul class="nav-links" id="sidebar-nav">
+                <li class="active" data-target="view-dashboard"><a href="#"><i class="fa-solid fa-border-all"></i> Dashboard</a></li>
+                <li data-target="view-cameras"><a href="#"><i class="fa-solid fa-video"></i> Cameras</a></li>
+                <li data-target="view-alerts"><a href="#"><i class="fa-solid fa-triangle-exclamation"></i> Alerts</a></li>
+                <li data-target="view-analytics"><a href="#"><i class="fa-solid fa-chart-line"></i> Analytics</a></li>
+                <li data-target="view-settings"><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="header-info">
+                    <h1>Command Center</h1>
+                    <p>Monitoring active storm systems</p>
+                </div>
+                <div class="global-status alert-critical">
+                    <i class="fa-solid fa-circle-radiation heartbeat"></i>
+                    <span>SYSTEM ALERT: CAT 4 HURRICANE ACTIVE</span>
+                </div>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin">
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div id="view-dashboard" class="main-view active">
+                <!-- Top Stats Grid -->
+            <section class="stats-grid">
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i class="fa-solid fa-wind"></i></div>
+                    <div class="stat-details">
+                        <h3>Wind Speed</h3>
+                        <p class="stat-value" id="windSpeed">125 <span class="unit">mph</span></p>
+                        <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 15%</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i class="fa-solid fa-cloud-showers-water"></i></div>
+                    <div class="stat-details">
+                        <h3>Rainfall Rate</h3>
+                        <p class="stat-value" id="rainFall">3.2 <span class="unit">in/hr</span></p>
+                        <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 5%</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i class="fa-solid fa-video-slash text-red"></i></div>
+                    <div class="stat-details">
+                        <h3>Cameras Offline</h3>
+                        <p class="stat-value" id="camsOffline">4 <span class="unit">/ 42</span></p>
+                        <span class="trend down"><i class="fa-solid fa-arrow-down"></i> 2</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i class="fa-solid fa-temperature-empty"></i></div>
+                    <div class="stat-details">
+                        <h3>Temperature</h3>
+                        <p class="stat-value" id="temperature">78 <span class="unit">&deg;F</span></p>
+                        <span class="trend flat"><i class="fa-solid fa-minus"></i> Steady</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System View Grid -->
+            <section class="system-view">
+                <!-- Camera Feeds -->
+                <div class="camera-grid">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-camera"></i> Live feeds</h2>
+                    </div>
+                    <div class="cameras-wrapper">
+                        <!-- Cam 1 -->
+                        <div class="camera-feed glass-panel status-online">
+                            <div class="cam-header">
+                                <span>CAM-01: Coastline North</span>
+                                <span class="cam-status"><i class="fa-solid fa-circle"></i> LIVE</span>
+                            </div>
+                            <div class="cam-video">
+                                <!-- Placeholder for image/video feed -->
+                                <div class="mock-feed noise" style="background-image: url('https://images.unsplash.com/photo-1520699697851-3dc68aa3a474?q=80&w=600&auto=format&fit=crop');"></div>
+                                <div class="overlay-text bottom-left">78&deg;F | 125mph</div>
+                            </div>
+                        </div>
+
+                        <!-- Cam 2 -->
+                        <div class="camera-feed glass-panel status-online">
+                            <div class="cam-header">
+                                <span>CAM-02: Downtown Junction</span>
+                                <span class="cam-status"><i class="fa-solid fa-circle"></i> LIVE</span>
+                            </div>
+                            <div class="cam-video">
+                                <div class="mock-feed noise" style="background-image: url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=600&auto=format&fit=crop'); filter: grayscale(50%) contrast(120%);"></div>
+                                <div class="overlay-text bottom-left">79&deg;F | 95mph</div>
+                            </div>
+                        </div>
+
+                        <!-- Cam 3 -->
+                        <div class="camera-feed glass-panel status-offline">
+                            <div class="cam-header">
+                                <span>CAM-03: Pier 4</span>
+                                <span class="cam-status"><i class="fa-solid fa-xmark"></i> OFFLINE</span>
+                            </div>
+                            <div class="cam-video">
+                                <div class="mock-feed no-signal">
+                                    <div class="static-noise"></div>
+                                    <span class="no-signal-text">SIGNAL LOST</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cam 4 -->
+                        <div class="camera-feed glass-panel status-warning">
+                            <div class="cam-header">
+                                <span>CAM-04: Substation B</span>
+                                <span class="cam-status"><i class="fa-solid fa-triangle-exclamation"></i> POOR SIGNAL</span>
+                            </div>
+                            <div class="cam-video">
+                                <div class="mock-feed" style="background-image: url('https://images.unsplash.com/photo-1542384705-776269ba16de?q=80&w=600&auto=format&fit=crop'); filter: blur(3px);"></div>
+                                <div class="overlay-text bottom-left">77&deg;F | 110mph</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incident Log -->
+                <div class="incident-log glass-panel">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-clipboard-list"></i> Activity Log</h2>
+                    </div>
+                    <ul class="log-list" id="logList">
+                        <li class="log-item critical">
+                            <span class="log-time">17:58</span>
+                            <span class="log-msg">CAM-03 (Pier 4) connection lost. Last seen: 17:57. High wind detected.</span>
+                        </li>
+                        <li class="log-item warning">
+                            <span class="log-time">17:45</span>
+                            <span class="log-msg">CAM-04 reporting intermittent packet loss.</span>
+                        </li>
+                        <li class="log-item info">
+                            <span class="log-time">17:30</span>
+                            <span class="log-msg">Automated wiper system engaged on all external cameras.</span>
+                        </li>
+                        <li class="log-item info">
+                            <span class="log-time">17:00</span>
+                            <span class="log-msg">System shifted to emergency backup power mode.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            </div>
+            
+            <div id="view-cameras" class="main-view glass-panel" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-video"></i> Camera Management</h2>
+                </div>
+                <p>Detailed view and configuration for all cameras will go here.</p>
+            </div>
+
+            <div id="view-alerts" class="main-view glass-panel" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-triangle-exclamation"></i> Priority Alerts</h2>
+                </div>
+                <p>System alerts and emergency configurations will go here.</p>
+            </div>
+
+            <div id="view-analytics" class="main-view glass-panel" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-chart-line"></i> Analytics & History</h2>
+                </div>
+                <p>Historical weather data vs camera uptime charts will go here.</p>
+            </div>
+
+            <div id="view-settings" class="main-view glass-panel" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-gear"></i> System Settings</h2>
+                </div>
+                <div style="margin-top:20px;">
+                    <p style="color:var(--text-sec); margin-bottom: 20px;">Options to configure automated weather responses, backup power, and user access levels.</p>
+                    <button style="background:var(--accent-cyan); color:#000; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">Save Configuration</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
